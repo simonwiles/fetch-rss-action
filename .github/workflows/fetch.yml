@@ -1,0 +1,15 @@
+name: Testing
+
+on:
+  workflow_dispatch:
+
+jobs:
+  fetch_rss:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
+
+      - name: Fetch Library Events RSS Feed
+        run: wget -O out.xml https://events.stanford.edu/xml/byOrganization/411/rss.xml
